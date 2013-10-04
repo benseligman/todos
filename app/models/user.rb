@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id            :integer          not null, primary key
+#  username      :string(255)      not null
+#  password_hash :string(255)      not null
+#  token         :string(255)      not null
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
 require 'bcrypt'
 
 class User < ActiveRecord::Base
@@ -12,6 +24,9 @@ class User < ActiveRecord::Base
   validates :token, :presence => true
 
   before_validation :set_token, :on => :create
+  after_create :add_todo_list
+
+  has_one :todo_list
 
   def password
     @password ||= Password.new(password_hash)
@@ -41,5 +56,9 @@ class User < ActiveRecord::Base
 
   def generate_token
     SecureRandom::urlsafe_base64
+  end
+
+  def add_todo_list
+    TodoList.create!(:user_id => self.id)
   end
 end

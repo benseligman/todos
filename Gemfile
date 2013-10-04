@@ -2,8 +2,10 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 
+gem 'backbone-on-rails'
 gem 'bcrypt-ruby'
 gem 'jquery-rails'
+gem 'ejs'
 gem 'pg'
 
 # Gems used only for assets and not required

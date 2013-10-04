@@ -4,7 +4,7 @@ module SessionsHelper
   end
 
   def logged_in?
-    !!current_user
+    !!self.current_user
   end
 
   def log_in(user)
@@ -13,7 +13,7 @@ module SessionsHelper
   end
 
   def log_out
-    user.set_token!
+    self.current_user.set_token!
     session[:token] = nil
   end
 end
