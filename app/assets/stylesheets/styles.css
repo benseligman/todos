@@ -1,3 +1,36 @@
+body {
+  font-family: "arial";
+}
+
+ul {
+  list-style-type: none;
+  border:0px;
+  padding: 0px;
+}
+
+.container {
+  width: 400px;
+}
+
+.todo-item {
+  width: 100%;
+  height: 20px;
+  border: 2px solid gray;
+  background-color: rgb(245, 245, 245);
+}
+
+.todo-item:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+.completed-item {
+  text-decoration: line-through;
+}
+
+.completion-button {
+  float: right;
+}
+
 .hidden {
   display: none;
 }

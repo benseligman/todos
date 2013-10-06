@@ -4,7 +4,7 @@
 #
 #  id           :integer          not null, primary key
 #  todo_list_id :integer          not null
-#  body         :string(255)      not null
+#  body         :string(255)
 #  order        :integer          not null
 #  completed    :boolean          default(FALSE), not null
 #  created_at   :datetime         not null

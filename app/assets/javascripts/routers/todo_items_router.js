@@ -18,8 +18,14 @@ Todos.Routers.TodoItems = Backbone.Router.extend({
     this._showTodos(id);
   },
 
-  new: function () {
-    this.todos.add({ order: this.todos.length }, { silent: true });
+  create: function () {
+    var that = this;
+
+    this.todos.create({ order: this.todos.maxOrder() + 1 }, {
+      success: function (todoItem) {
+        that.navigate("#/todo_items/" + todoItem.id + "/edit");
+      }
+    });
   },
 
   _showTodos: function (todoId) {

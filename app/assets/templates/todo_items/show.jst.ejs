@@ -1,1 +1,10 @@
-<%= model.escape("body") %>
+<% var completed = model.get("completed") %>
+<% var completionButtonBody = completed ? "Mark Incomplete" : "Mark Complete" %>
+<% var completeClass = completed ? "completed-item" : "" %>
+
+<span class="todo-item-body <%= completeClass %>">
+  <%= model.escape("body") %>
+</span>
+<button class="completion-button">
+  <%= completionButtonBody %>
+</button>

@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
     if @user.save
       log_in(@user)
-      render :json => @user.to_json
+      redirect_to root_url
     else
       render :new
     end

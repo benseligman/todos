@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
     if user
       log_in(user)
-      render :json => user.to_json
+      redirect_to root_url
     else
       @user = User.new(params[:user])
       render :new

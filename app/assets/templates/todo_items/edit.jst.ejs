@@ -1,3 +1,6 @@
+<% var completed = model.get("completed") %>
+<% var completion_button_body = completed ? "Mark Incomplete" : "Mark Complete" %>
+
 <form id="note-edit" data-id="<%= model.id %>">
   <label for="todo_body" class="hidden">Body</label>
   <input type="text" id="todo_body" name="todo[body] placeholder="Enter task" value="<%= model.escape("body") %>">

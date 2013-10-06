@@ -15,6 +15,8 @@
 //= require serializeJSON
 //= require underscore
 //= require backbone
+//= require jquery-ui-1.10.3.custom
+//
 //= require todos
 //= require_tree ../templates
 //= require_tree ./models

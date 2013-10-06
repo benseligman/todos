@@ -1,5 +1,8 @@
 Todos.Views.TodoItemsEdit = Backbone.View.extend({
 
+
+  el: "<li class='todo-item'>",
+
   template: JST['todo_items/edit'],
 
   events: {
