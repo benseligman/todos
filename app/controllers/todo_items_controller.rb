@@ -20,4 +20,9 @@ class TodoItemsController < ApplicationController
       render :json => @todo_item.errors.full_messages, :status => 422
     end
   end
+
+  def show
+    @todo_item = TodoItem.find(params[:id])
+    render :json => @todo_item
+  end
 end

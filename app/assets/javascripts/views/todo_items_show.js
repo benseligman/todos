@@ -12,7 +12,6 @@ Todos.Views.TodoItemsShow = Backbone.View.extend({
   events: {
     "click .completion-button": "toggleComplete",
     "click": "edit"
-
   },
 
   render: function () {

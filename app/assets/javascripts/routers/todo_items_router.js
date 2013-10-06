@@ -7,7 +7,7 @@ Todos.Routers.TodoItems = Backbone.Router.extend({
   routes: {
     "": "index",
     "todo_items/:id/edit": "edit",
-    "todo_items/new": "create"
+    "todo_items/create": "create"
   },
 
   index: function () {

@@ -23,6 +23,14 @@ ul {
   background-color: rgb(230, 230, 230);
 }
 
+.todo-body-input {
+  width:95%;
+}
+
+.todo-item-body {
+  width:50%;
+}
+
 .completed-item {
   text-decoration: line-through;
 }

@@ -12,6 +12,6 @@ Todos.Views.TodoItemsNew = Backbone.View.extend({
 
   createNote: function (event) {
     event.preventDefault();
-    Todos.Store.router.navigate("#/todo_items/new", { trigger: true });
+    Todos.Store.router.navigate("#/todo_items/create", { trigger: true });
   }
 });

@@ -7,9 +7,11 @@ Todos.Collections.TodoItems = Backbone.Collection.extend({
   },
 
   maxOrder: function () {
-    return _(this.map(function (todoItem) {
+    var orders = this.map(function (todoItem) {
       return todoItem.get("order");
-    })).max();
+    });
+
+    return (orders.length > 0) ? _(orders).max() : 0;
   }
 
 });

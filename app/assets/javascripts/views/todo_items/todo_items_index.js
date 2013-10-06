@@ -4,7 +4,8 @@ Todos.Views.TodoItemsIndex = Backbone.View.extend({
 
   initialize: function (options) {
     this.editingItemId = options.editingItemId;
-    var sortable = this.makeSortable();
+    this.subViews = [];
+    this.makeSortable();
   },
 
   template: JST['todo_items/index'],
@@ -39,16 +40,21 @@ Todos.Views.TodoItemsIndex = Backbone.View.extend({
     var that = this;
     var idx = 1;
 
+
     _(this.$el.children()).each(function (child) {
       var id = $(child).data("id");
       var model = that.collection.get(id);
 
       if (model) {
         model.set("order", idx);
-        model.save();
+        if (!$.isEmptyObject(model.changed)) {
+          model.save();
+        }
         idx++;
       }
     });
+
+    this.collection.sort();
   },
 
   _renderItem: function (model) {

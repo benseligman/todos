@@ -1,7 +1,6 @@
 Todos.Views.TodoItemsEdit = Backbone.View.extend({
 
-
-  el: "<li class='todo-item'>",
+  el: "<li class='todo-item todo_item_edit'>",
 
   template: JST['todo_items/edit'],
 
@@ -10,7 +9,7 @@ Todos.Views.TodoItemsEdit = Backbone.View.extend({
   },
 
   render: function () {
-    this.$el.addClass("todo_item_edit");
+    this.$el.attr("data-id", this.model.id);
     this.$el.html(this.template({model: this.model}));
     return this;
   },

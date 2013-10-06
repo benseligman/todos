@@ -3,5 +3,5 @@
 
 <form id="note-edit" data-id="<%= model.id %>">
   <label for="todo_body" class="hidden">Body</label>
-  <input type="text" id="todo_body" name="todo[body] placeholder="Enter task" value="<%= model.escape("body") %>">
+  <input type="text" class="todo-body-input" id="todo_body" name="todo[body] placeholder="Enter task" value="<%= model.escape("body") %>">
 </form>
