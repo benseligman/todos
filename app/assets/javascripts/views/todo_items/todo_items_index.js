@@ -57,17 +57,27 @@ Todos.Views.TodoItemsIndex = Backbone.View.extend({
     this.collection.sort();
   },
 
+  remove: function () {
+    _(this.subViews).each(function (subView) {
+      subView.remove();
+    });
+
+    Backbone.View.prototype.remove.call(this);
+  },
+
   _renderItem: function (model) {
     var itemView;
     var modelId = model.id;
+
     if (model.id == this.editingItemId) {
       itemView = new Todos.Views.TodoItemsEdit({model: model});
     } else {
       itemView = new Todos.Views.TodoItemsShow({model: model});
     }
 
-    var $el = itemView.render().$el;
+    this.subViews.push(itemView);
 
+    var $el = itemView.render().$el;
     this.$el.append($el);
   }
 

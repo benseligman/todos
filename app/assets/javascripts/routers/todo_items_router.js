@@ -2,6 +2,7 @@ Todos.Routers.TodoItems = Backbone.Router.extend({
   initialize: function (options) {
     this.todos = options.todos;
     this.$rootEl = options.$rootEl;
+    this.currentView = new Backbone.View();
   },
 
   routes: {
@@ -29,10 +30,14 @@ Todos.Routers.TodoItems = Backbone.Router.extend({
   },
 
   _showTodos: function (todoId) {
+    this.currentView.remove();
+
     var indexView = new Todos.Views.TodoItemsIndex({
       collection: this.todos,
       editingItemId: todoId
     });
+
+    this.currentView = indexView;
 
     this.$rootEl.html(indexView.render().$el);
   }
