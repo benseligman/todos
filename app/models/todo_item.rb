@@ -17,5 +17,6 @@ class TodoItem < ActiveRecord::Base
   validates :order, :todo_list_id, :presence => true
 
   belongs_to :todo_list
+  has_one :user, :through => :todo_list
 
 end

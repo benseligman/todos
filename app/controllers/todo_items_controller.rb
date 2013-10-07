@@ -15,11 +15,18 @@ class TodoItemsController < ApplicationController
 
   def update
     @todo_item = TodoItem.find(params[:id])
+    require_owning_user(@todo_item)
 
     if @todo_item.update_attributes(params[:todo_item])
       render :json => @todo_item
     else
       render :json => @todo_item.errors.full_messages, :status => 422
+    end
+  end
+
+  def require_owning_user(todo_item)
+    unless todo_item.user == self.current_user
+      raise "you aren't authorized to change that todo"
     end
   end
 end
