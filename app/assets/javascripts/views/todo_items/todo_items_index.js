@@ -67,7 +67,6 @@ Todos.Views.TodoItemsIndex = Backbone.View.extend({
 
   _renderItem: function (model) {
     var itemView;
-    var modelId = model.id;
 
     if (model.id == this.editingItemId) {
       itemView = new Todos.Views.TodoItemsEdit({model: model});

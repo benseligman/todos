@@ -4,6 +4,5 @@ Todos::Application.routes.draw do
   resources :users, :only => [:new, :create]
   resource :session, :only => [:new, :create, :destroy]
 
-  resource :todo_list, :only => [:show]
-  resources :todo_items
+  resources :todo_items, :only => [:create, :update]
 end
