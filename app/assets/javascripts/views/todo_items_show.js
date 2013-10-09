@@ -27,7 +27,6 @@ Todos.Views.TodoItemsShow = Backbone.View.extend({
 
   toggleComplete: function (event) {
     event.stopPropagation();
-    var complete = this.model.get("complete");
     this.model.set("completed", !(this.model.get("completed")));
     this.model.save();
   }

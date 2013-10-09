@@ -47,11 +47,10 @@ Todos.Views.TodoItemsIndex = Backbone.View.extend({
 
       if (model) {
         model.set("order", idx);
-        if (!$.isEmptyObject(model.changed)) {
-          model.save();
-        }
+        if (!$.isEmptyObject(model.changed)) { model.save(); }
         idx++;
       }
+
     });
 
     this.collection.sort();
